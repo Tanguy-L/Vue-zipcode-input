@@ -4,7 +4,7 @@ It's a lightweight component that give you the regex (and validate) of the diffe
 
 ## Demo
 
-![Output sample](https://github.com/Moustick95/Vue-zipcode-input/demo/zipcode-input.gif)
+![Output sample](https://github.com/Moustick95/Vue-zipcode-input/raw/master/demo/zipcode-input.gif)
 
 ## Why ?
 
