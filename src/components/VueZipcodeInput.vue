@@ -1,26 +1,20 @@
 <template>
-    <div>
-        
-        <p> Result regex : {{ resultRegex }}</p>
-        <p> Current regex : {{ selectedCountry.regex }}</p>
-        
-        <div class="main-section">
-            <div class="icon-flags">
-                <ul @click="fullList = !fullList" class="dropdown">
-                    <img class="icon" src="../assets/baseline-arrow_drop_down-24px.svg" alt="Fleche vers le bas">
-                    <div class="country" >
-                        <div class="iti-flag" :class="selectedCountry.name" ></div>
-                    </div>
-                </ul>
-                <ul @click="giveRegex" class="list-countries" v-if="fullList">
-                    <div @click="selectNewCountry(country)" class="country-div" v-for="(country, index) in filteredCountries" :key="country + index">
-                        <div class="iti-flag" :class="country.name"></div>
-                        <li>{{ country.name.slice(0,2).toUpperCase() }}</li>
-                    </div>
-                </ul>
-            </div>
-            <input @input="regexEmit" class="input" v-model="zipcode" type="text">
+    <div class="flex">
+        <div>
+            <ul @click="fullList = !fullList" class="dropdown">
+                <img class="icon" src="../assets/baseline-arrow_drop_down-24px.svg" alt="Fleche vers le bas">
+                <div class="flex" >
+                    <div class="country-flag" :class="selectedCountry.name" ></div>
+                </div>
+            </ul>
+            <ul @click="giveRegex" class="list-countries" v-if="fullList">
+                <div @click="selectNewCountry(country)" class="country-div" v-for="(country, index) in filteredCountries" :key="country + index">
+                    <div class="country-flag" :class="country.name"></div>
+                    <li>{{ country.name.slice(0,2).toUpperCase() }}</li>
+                </div>
+            </ul>
         </div>
+        <input @input="regexEmit" class="input" v-model="zipcode" type="text">
     </div>
 </template>
 
@@ -46,6 +40,8 @@ export default {
             if (this.selectedCountry.regex) {
                 let regex = this.selectedCountry.regex
                 return regex.test(this.zipcode)
+            } else {
+                return null
             }
         } 
     },
@@ -57,6 +53,7 @@ export default {
         regexEmit () {
             this.$emit('get-regex', this.selectedCountry.regex)
             this.$emit('get-result-regex', this.resultRegex)
+            this.$emit('get-input', this.zipcode)
         }
     },
     mounted () {
@@ -79,11 +76,7 @@ export default {
     height: 30px;
 }
 
-.padding-bottom {
-    margin-bottom: 7px;
-}
-
-.main-section {
+.flex {
     display: flex;
 }
 
@@ -92,17 +85,13 @@ export default {
     cursor: pointer;
 }
 
-.country {
-    display: flex;
-}
-
 .list-countries {
     list-style: none;
     padding: 0;
     width: 69px;
     display: flex;
     flex-direction: column;
-    align-items: end;
+    align-items: flex-end;
     border-radius: 0 0 4px 4px;
     margin: 0;
     box-shadow: 2px 2px 2px rgba(31, 31, 31, 0.336);
@@ -129,7 +118,7 @@ export default {
     width: 24px;
 }
 
-.iti-flag {
+.country-flag {
   width: 30px;
   height: 20px;
   box-shadow: 0px 0px 1px 0px #888;
@@ -156,10 +145,6 @@ export default {
 .en {
     height: 15px;
     background-position: -90px -5px;
-}
-
-.margin-top {
-    margin-top: 7px;
 }
 
 .input {

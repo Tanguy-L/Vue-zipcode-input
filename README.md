@@ -19,6 +19,7 @@ That will come really soon guys !
 | -------------- | --------- | ----------- |
 | `@get-result-regex` | `String` | Fires when the input changes, give the result of the test of the regex (true or false)
 | `@get-regex` | `Object` | Fires when the input changes, give the raw regex (Could be cool for vee-validate !)
+| `@get-input` | `String` | Fires when the input changes, give the current value of input
 
 ## Project setup
 ```
