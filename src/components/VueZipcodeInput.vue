@@ -8,7 +8,7 @@
                 </div>
             </ul>
             <ul @click="giveRegex" class="list-countries" v-if="fullList">
-                <div @click="selectNewCountry(country)" class="country-div" v-for="(country, index) in filteredCountries" :key="country + index">
+                <div @click="selectNewCountry(country);regexEmit()" class="country-div" v-for="(country, index) in filteredCountries" :key="country + index">
                     <div class="country-flag" :class="country.name"></div>
                     <li>{{ country.name.slice(0,2).toUpperCase() }}</li>
                 </div>

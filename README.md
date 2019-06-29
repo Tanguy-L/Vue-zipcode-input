@@ -1,8 +1,10 @@
 # vue-zipcode-input
 
-## What is the purpose of the project ?
+It's a lightweight component that give you the regex (and validate) of the different zipcode of countries. 
 
-It's a lightweight component that give you the regex of the different zipcode of countries. 
+## Demo
+
+![Output sample](/demo/zipcode-input.gif)
 
 ## Why ?
 
