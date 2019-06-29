@@ -1,5 +1,25 @@
 # vue-zipcode-input
 
+## What is the purpose of the project ?
+
+It's a lightweight component that give you the regex of the different zipcode of countries. 
+
+## Why ?
+
+I see the nice project vue-tel-input, you can choose your country and it's give you the good phone number for your country.
+I think that could be cool to have the same component for the zipcode.
+
+## The props
+
+That will come really soon guys !
+
+## The events
+
+| Property value | Arguments | Description |
+| -------------- | --------- | ----------- |
+| `@get-result-regex` | `String` | Fires when the input changes, give the result of the test of the regex (true or false)
+| `@get-regex` | `Object` | Fires when the input changes, give the raw regex (Could be cool for vee-validate !)
+
 ## Project setup
 ```
 yarn install
@@ -15,16 +35,7 @@ yarn run serve
 yarn run build
 ```
 
-### Run your tests
-```
-yarn run test
-```
-
 ### Lints and fixes files
 ```
 yarn run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-"# Vue-zipcode-input" 
